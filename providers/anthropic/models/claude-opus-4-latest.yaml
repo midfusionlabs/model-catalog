@@ -1,0 +1,26 @@
+name: "claude-opus-4-latest"
+display_name: "Claude Opus 4 (Latest)"
+family: "claude-4"
+status: "stable"
+
+cost:
+  input_per_1k: 0.015
+  output_per_1k: 0.075
+
+limits:
+  max_tokens: 200000
+  max_completion_tokens: 32000
+
+capabilities:
+  - chat
+  - function_calling
+  - vision
+  - extended_thinking
+  - computer_use
+
+modalities:
+  input: ["text", "image"]
+  output: ["text"]
+
+notes: "Alias that always points to the latest Claude Opus 4 version"
+

@@ -1,0 +1,25 @@
+name: "claude-3-7-sonnet-latest"
+display_name: "Claude 3.7 Sonnet (Latest)"
+family: "claude-3.7"
+status: "stable"
+
+cost:
+  input_per_1k: 0.003
+  output_per_1k: 0.015
+
+limits:
+  max_tokens: 200000
+  max_completion_tokens: 128000
+
+capabilities:
+  - chat
+  - function_calling
+  - vision
+  - extended_thinking
+
+modalities:
+  input: ["text", "image"]
+  output: ["text"]
+
+notes: "Alias that always points to the latest Claude 3.7 Sonnet version"
+
