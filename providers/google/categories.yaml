@@ -1,0 +1,25 @@
+# Model categories for Google
+# Groups models by their primary capabilities
+
+chat:
+  - gemini-1.5-pro
+  - gemini-1.5-flash
+  - gemini-pro
+
+vision:
+  - gemini-1.5-pro
+  - gemini-1.5-flash
+
+function_calling:
+  - gemini-1.5-pro
+  - gemini-1.5-flash
+  - gemini-pro
+
+multimodal:
+  - gemini-1.5-pro
+  - gemini-1.5-flash
+
+long_context:
+  - gemini-1.5-pro
+  - gemini-1.5-flash
+

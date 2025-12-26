@@ -1,0 +1,111 @@
+# Model Catalog Manifest
+# Auto-generated - DO NOT EDIT MANUALLY
+# Run: ./scripts/generate-manifest.sh to regenerate
+
+version: "2.0.0"
+generated_at: "2025-12-26T02:35:06Z"
+schema_version: "1.0"
+
+providers:
+  - name: anthropic
+    files:
+      - providers/anthropic/provider.yaml
+      - providers/anthropic/categories.yaml
+      - providers/anthropic/templates.yaml
+    models:
+      - providers/anthropic/models/claude-3-5-haiku-20241022.yaml
+      - providers/anthropic/models/claude-3-5-sonnet-20241022.yaml
+      - providers/anthropic/models/claude-3-haiku-20240307.yaml
+      - providers/anthropic/models/claude-3-opus-20240229.yaml
+      - providers/anthropic/models/claude-3-sonnet-20240229.yaml
+      - providers/anthropic/models/claude-opus-4-1-20250805.yaml
+      - providers/anthropic/models/claude-sonnet-4-20250514.yaml
+
+  - name: cohere
+    files:
+      - providers/cohere/provider.yaml
+      - providers/cohere/categories.yaml
+      - providers/cohere/templates.yaml
+    models:
+      - providers/cohere/models/command-a-03-2025.yaml
+      - providers/cohere/models/command-a-reasoning-08-2025.yaml
+      - providers/cohere/models/command-light.yaml
+      - providers/cohere/models/embed-english-v3.0.yaml
+      - providers/cohere/models/embed-multilingual-v3.0.yaml
+
+  - name: google
+    files:
+      - providers/google/provider.yaml
+      - providers/google/categories.yaml
+      - providers/google/templates.yaml
+    models:
+      - providers/google/models/gemini-1.5-flash.yaml
+      - providers/google/models/gemini-1.5-pro.yaml
+      - providers/google/models/gemini-pro.yaml
+
+  - name: huggingface
+    files:
+      - providers/huggingface/provider.yaml
+      - providers/huggingface/categories.yaml
+      - providers/huggingface/templates.yaml
+    models:
+      - providers/huggingface/models/huggingface-gpt-3.5-turbo.yaml
+      - providers/huggingface/models/huggingface-gpt-4-turbo.yaml
+      - providers/huggingface/models/huggingface-gpt-4.yaml
+      - providers/huggingface/models/huggingface-gpt-4o-mini.yaml
+      - providers/huggingface/models/huggingface-gpt-4o.yaml
+      - providers/huggingface/models/huggingface-text-embedding-ada-002.yaml
+
+  - name: mistral
+    files:
+      - providers/mistral/provider.yaml
+      - providers/mistral/categories.yaml
+      - providers/mistral/templates.yaml
+    models:
+      - providers/mistral/models/magistral-small-2509.yaml
+      - providers/mistral/models/voxtral-small-2507.yaml
+
+  - name: ollama
+    files:
+      - providers/ollama/provider.yaml
+      - providers/ollama/categories.yaml
+      - providers/ollama/templates.yaml
+    models:
+      # Dynamic models discovered at runtime
+
+  - name: openai
+    files:
+      - providers/openai/provider.yaml
+      - providers/openai/categories.yaml
+      - providers/openai/templates.yaml
+    models:
+      - providers/openai/models/gpt-3.5-turbo.yaml
+      - providers/openai/models/gpt-4-turbo.yaml
+      - providers/openai/models/gpt-4.yaml
+      - providers/openai/models/gpt-4o-mini.yaml
+      - providers/openai/models/gpt-4o.yaml
+      - providers/openai/models/gpt-5-nano.yaml
+      - providers/openai/models/gpt-5.1.yaml
+      - providers/openai/models/text-embedding-3-large.yaml
+      - providers/openai/models/text-embedding-3-small.yaml
+      - providers/openai/models/text-embedding-ada-002.yaml
+
+  - name: openrouter
+    files:
+      - providers/openrouter/provider.yaml
+      - providers/openrouter/categories.yaml
+      - providers/openrouter/templates.yaml
+    models:
+      - providers/openrouter/models/openai-gpt-3.5-turbo.yaml
+      - providers/openrouter/models/openai-gpt-4-turbo.yaml
+      - providers/openrouter/models/openai-gpt-4.yaml
+      - providers/openrouter/models/openai-gpt-4o-mini.yaml
+      - providers/openrouter/models/openai-gpt-4o.yaml
+      - providers/openrouter/models/openai-text-embedding-ada-002.yaml
+
+# Statistics
+stats:
+  total_providers: 8
+  total_models: 39
+  static_providers: 5
+  meta_providers: 3

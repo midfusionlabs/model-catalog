@@ -1,0 +1,19 @@
+name: "text-embedding-3-large"
+display_name: "Text Embedding 3 Large"
+family: "embedding"
+status: "stable"
+
+cost:
+  input_per_1k: 0.00013
+  output_per_1k: 0
+
+limits:
+  max_tokens: 8191
+
+capabilities:
+  - embeddings
+
+modalities:
+  input: ["text"]
+  output: ["embedding"]
+

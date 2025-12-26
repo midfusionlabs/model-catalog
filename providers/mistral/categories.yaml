@@ -1,0 +1,18 @@
+# Model categories for Mistral
+# Groups models by their primary capabilities
+
+chat:
+  - magistral-small-2509
+  - voxtral-small-2507
+
+vision:
+  - magistral-small-2509
+  - voxtral-small-2507
+
+function_calling:
+  - magistral-small-2509
+  - voxtral-small-2507
+
+reasoning:
+  - magistral-small-2509
+

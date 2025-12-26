@@ -1,0 +1,26 @@
+# Model categories for Hugging Face
+# Note: Hugging Face is a meta-provider - models are discovered dynamically
+# These are example categories for commonly used models
+
+chat:
+  - huggingface/gpt-4o
+  - huggingface/gpt-4o-mini
+  - huggingface/gpt-4-turbo
+  - huggingface/gpt-4
+  - huggingface/gpt-3.5-turbo
+
+embeddings:
+  - huggingface/text-embedding-ada-002
+
+vision:
+  - huggingface/gpt-4o
+  - huggingface/gpt-4o-mini
+  - huggingface/gpt-4-turbo
+
+function_calling:
+  - huggingface/gpt-4o
+  - huggingface/gpt-4o-mini
+  - huggingface/gpt-4-turbo
+  - huggingface/gpt-4
+  - huggingface/gpt-3.5-turbo
+

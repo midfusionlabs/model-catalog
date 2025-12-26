@@ -1,0 +1,529 @@
+# Default provider configurations for the LLM Gateway
+# This file contains provider-specific settings, capabilities, and configurations
+
+providers:
+  openai:
+    name: "OpenAI"
+    display_name: "OpenAI"
+    base_url: "https://api.openai.com/v1"
+    api_version: "2024-01-01"
+
+    # Authentication
+    auth:
+      type: "api_key"
+      header_name: "Authorization"
+      header_format: "Bearer {api_key}"
+      env_var: "OPENAI_API_KEY"
+
+    # Rate limiting
+    rate_limits:
+      requests_per_minute: 3500
+      tokens_per_minute: 200001
+      concurrent_requests: 50
+
+    # Supported features
+    capabilities:
+      chat: true
+      completions: true
+      embeddings: true
+      function_calling: true
+      vision: true
+      streaming: true
+      fine_tuning: true
+      assistants: true
+
+    # Model families
+    model_families:
+      gpt-4:
+        description: "GPT-4 family models"
+        capabilities: ["chat", "function_calling", "vision"]
+        max_tokens: 128000
+
+      gpt-3.5:
+        description: "GPT-3.5 family models"
+        capabilities: ["chat", "function_calling"]
+        max_tokens: 16385
+
+      embedding:
+        description: "Embedding models"
+        capabilities: ["embeddings"]
+        max_tokens: 8191
+
+    # Default settings
+    defaults:
+      temperature: 0.7
+      max_tokens: 1000
+      top_p: 1.0
+      frequency_penalty: 0.0
+      presence_penalty: 0.0
+      timeout: 60s
+      retry_attempts: 3
+      retry_delay: 1s
+
+    # Error handling
+    error_mapping:
+      "insufficient_quota": "rate_limit_exceeded"
+      "billing_not_active": "payment_required"
+      "model_not_found": "model_unavailable"
+      "invalid_api_key": "authentication_failed"
+
+  anthropic:
+    name: "Anthropic"
+    display_name: "Anthropic"
+    base_url: "https://api.anthropic.com/v1"
+    api_version: "2023-06-01"
+
+    # Authentication
+    auth:
+      type: "api_key"
+      header_name: "x-api-key"
+      header_format: "{api_key}"
+      env_var: "ANTHROPIC_API_KEY"
+
+    # Rate limiting
+    rate_limits:
+      requests_per_minute: 1000
+      tokens_per_minute: 100000
+      concurrent_requests: 25
+
+    # Supported features
+    capabilities:
+      chat: true
+      completions: false
+      embeddings: false
+      function_calling: true
+      vision: true
+      streaming: true
+      fine_tuning: false
+      assistants: false
+
+    # Model families
+    model_families:
+      claude-3:
+        description: "Claude 3 family models"
+        capabilities: ["chat", "function_calling", "vision"]
+        max_tokens: 200000
+
+      claude-2:
+        description: "Claude 2 family models"
+        capabilities: ["chat"]
+        max_tokens: 100000
+
+    # Default settings
+    defaults:
+      temperature: 0.7
+      max_tokens: 1000
+      top_p: 1.0
+      top_k: 40
+      timeout: 60s
+      retry_attempts: 3
+      retry_delay: 1s
+
+    # Error handling
+    error_mapping:
+      "rate_limit_exceeded": "rate_limit_exceeded"
+      "payment_required": "payment_required"
+      "model_not_found": "model_unavailable"
+      "invalid_api_key": "authentication_failed"
+
+  cohere:
+    name: "Cohere"
+    display_name: "Cohere"
+    base_url: "https://api.cohere.com"
+    api_version: "2024-01-01"
+
+    # Authentication
+    auth:
+      type: "api_key"
+      header_name: "Authorization"
+      header_format: "Bearer {api_key}"
+      env_var: "COHERE_API_KEY"
+
+    # Rate limiting
+    rate_limits:
+      requests_per_minute: 1000
+      tokens_per_minute: 60000
+      concurrent_requests: 20
+
+    # Supported features
+    capabilities:
+      chat: true
+      completions: true
+      embeddings: true
+      function_calling: false
+      vision: false
+      streaming: true
+      fine_tuning: true
+      assistants: false
+
+    # Model families
+    model_families:
+      command:
+        description: "Command family models"
+        capabilities: ["chat", "completions"]
+        max_tokens: 4096
+
+      embed:
+        description: "Embedding models"
+        capabilities: ["embeddings"]
+        max_tokens: 512
+
+    # Default settings
+    defaults:
+      temperature: 0.7
+      max_tokens: 1000
+      top_p: 1.0
+      top_k: 40
+      timeout: 60s
+      retry_attempts: 3
+      retry_delay: 1s
+
+    # Error handling
+    error_mapping:
+      "rate_limit_exceeded": "rate_limit_exceeded"
+      "billing_not_active": "payment_required"
+      "model_not_found": "model_unavailable"
+      "invalid_api_key": "authentication_failed"
+
+  google:
+    name: "Google"
+    display_name: "Google"
+    base_url: "https://generativelanguage.googleapis.com/v1"
+    api_version: "2024-01-01"
+
+    # Authentication
+    auth:
+      type: "api_key"
+      header_name: "x-goog-api-key"
+      header_format: "{api_key}"
+      env_var: "GOOGLE_API_KEY"
+
+    # Rate limiting
+    rate_limits:
+      requests_per_minute: 1500
+      tokens_per_minute: 120000
+      concurrent_requests: 30
+
+    # Supported features
+    capabilities:
+      chat: true
+      completions: false
+      embeddings: false
+      function_calling: true
+      vision: true
+      streaming: true
+      fine_tuning: false
+      assistants: false
+
+    # Model families
+    model_families:
+      gemini:
+        description: "Gemini family models"
+        capabilities: ["chat", "function_calling", "vision"]
+        max_tokens: 1048576
+
+    # Default settings
+    defaults:
+      temperature: 0.7
+      max_tokens: 1000
+      top_p: 1.0
+      top_k: 40
+      timeout: 60s
+      retry_attempts: 3
+      retry_delay: 1s
+
+    # Error handling
+    error_mapping:
+      "quota_exceeded": "rate_limit_exceeded"
+      "billing_not_active": "payment_required"
+      "model_not_found": "model_unavailable"
+      "invalid_api_key": "authentication_failed"
+
+  mistral:
+    name: "Mistral AI"
+    display_name: "Mistral AI"
+    base_url: "https://api.mistral.ai/v1"
+    api_version: "2024-01-01"
+
+    # Authentication
+    auth:
+      type: "api_key"
+      header_name: "Authorization"
+      header_format: "Bearer {api_key}"
+      env_var: "MISTRAL_API_KEY"
+
+    # Rate limiting
+    rate_limits:
+      requests_per_minute: 800
+      tokens_per_minute: 80000
+      concurrent_requests: 15
+
+    # Supported features
+    capabilities:
+      chat: true
+      completions: false
+      embeddings: false
+      function_calling: true
+      vision: false
+      streaming: true
+      fine_tuning: false
+      assistants: false
+
+    # Model families
+    model_families:
+      mistral:
+        description: "Mistral family models"
+        capabilities: ["chat", "function_calling"]
+        max_tokens: 32768
+
+    # Default settings
+    defaults:
+      temperature: 0.7
+      max_tokens: 1000
+      top_p: 1.0
+      top_k: 40
+      timeout: 60s
+      retry_attempts: 3
+      retry_delay: 1s
+
+    # Error handling
+    error_mapping:
+      "rate_limit_exceeded": "rate_limit_exceeded"
+      "quota_exceeded": "payment_required"
+      "model_not_found": "model_unavailable"
+      "invalid_api_key": "authentication_failed"
+
+  openrouter:
+    name: "OpenRouter"
+    display_name: "OpenRouter"
+    base_url: "https://openrouter.ai/api/v1"
+    api_version: "2024-01-01"
+
+    # Provider type and model discovery
+    provider_type: "meta"
+    supports_model_discovery: true
+    discovery_api_endpoint: "https://openrouter.ai/api/v1/models"
+
+    # Authentication
+    auth:
+      type: "api_key"
+      header_name: "Authorization"
+      header_format: "Bearer {api_key}"
+      env_var: "OPENROUTER_API_KEY"
+
+    # Rate limiting
+    rate_limits:
+      requests_per_minute: 1000
+      tokens_per_minute: 60000
+      concurrent_requests: 20
+
+    # Supported features
+    capabilities:
+      chat: true
+      completions: true
+      embeddings: true
+      function_calling: true
+      vision: true
+      streaming: true
+      fine_tuning: true
+      assistants: true
+      web_search: true
+  huggingface:
+    name: "Hugging Face"
+    display_name: "Hugging Face"
+    base_url: "https://router.huggingface.co/v1"
+    api_version: "2024-01-01"
+
+    # Provider type and model discovery
+    provider_type: "meta"
+    supports_model_discovery: true
+    discovery_api_endpoint: "https://huggingface.co/api/models"
+
+    # Authentication
+    auth:
+      type: "api_key"
+      header_name: "Authorization"
+      header_format: "Bearer {api_key}"
+      env_var: "HUGGINGFACE_API_KEY"
+
+    # Rate limiting
+    rate_limits:
+      requests_per_minute: 1000
+      tokens_per_minute: 60000
+      concurrent_requests: 20
+
+    # Supported features
+    capabilities:
+      chat: true
+      completions: true
+      embeddings: true
+      function_calling: true
+      vision: true
+      streaming: true
+      fine_tuning: true
+      assistants: true
+      web_search: true
+
+    # Model families
+    model_families:
+      huggingface:
+        description: "Hugging Face family models"
+        capabilities: ["chat", "function_calling", "vision"]
+        max_tokens: 32768
+
+    # Default settings
+    defaults:
+      temperature: 0.7
+      max_tokens: 1000
+      top_p: 1.0
+      top_k: 40
+      timeout: 60s
+      retry_attempts: 3
+      retry_delay: 1s
+
+    # Error handling
+    error_mapping:
+      "rate_limit_exceeded": "rate_limit_exceeded"
+      "quota_exceeded": "payment_required"
+
+  ollama:
+    name: "Ollama"
+    display_name: "Ollama"
+    base_url: "http://localhost:11434"
+    api_version: "2024-01-01"
+
+    # Provider type and model discovery
+    provider_type: "meta"
+    supports_model_discovery: true
+    discovery_api_endpoint: "http://localhost:11434/api/tags"
+
+    # Authentication
+    auth:
+      type: "none"
+      header_name: ""
+      header_format: ""
+      env_var: ""
+
+    # Rate limiting
+    rate_limits:
+      requests_per_minute: 10000
+      tokens_per_minute: 2000000
+      concurrent_requests: 100
+
+    # Supported features
+    capabilities:
+      chat: true
+      completions: true
+      embeddings: true
+      function_calling: false
+      vision: false
+      streaming: true
+      fine_tuning: false
+      assistants: false
+
+    # Model families
+    model_families:
+      ollama:
+        description: "Local Ollama models"
+        capabilities: ["chat", "completions", "embeddings"]
+        max_tokens: 32768
+
+    # Default settings
+    defaults:
+      temperature: 0.7
+      max_tokens: 1000
+      top_p: 1.0
+      top_k: 40
+      timeout: 120s
+      retry_attempts: 3
+      retry_delay: 1s
+
+    # Error handling
+    error_mapping:
+      "connection_failed": "server_error"
+      "model_not_found": "model_unavailable"
+
+  # Provider templates for common configurations
+templates:
+  # High-performance configuration
+  high_performance:
+    name: "High Performance"
+    description: "Optimized for high throughput and low latency"
+    settings:
+      timeout: 30s
+      retry_attempts: 2
+      retry_delay: 500ms
+      connection_pool_size: 100
+      max_concurrent_requests: 50
+
+  # Cost-optimized configuration
+  cost_optimized:
+    name: "Cost Optimized"
+    description: "Optimized for cost efficiency"
+    settings:
+      timeout: 120s
+      retry_attempts: 1
+      retry_delay: 2s
+      connection_pool_size: 10
+      max_concurrent_requests: 5
+      use_cheaper_models: true
+
+  # Reliability-focused configuration
+  reliability:
+    name: "High Reliability"
+    description: "Optimized for maximum reliability"
+    settings:
+      timeout: 180s
+      retry_attempts: 5
+      retry_delay: 2s
+      connection_pool_size: 50
+      max_concurrent_requests: 20
+      circuit_breaker_enabled: true
+
+# Provider categories
+categories:
+  premium:
+    - "openai"
+    - "anthropic"
+    - "huggingface"
+    - "openrouter"
+    - "azure"
+
+  standard:
+    - "cohere"
+    - "google"
+    - "mistral"
+    - "openrouter"
+    - "huggingface"
+    - "azure"
+    - "aws"
+    - "deepseek"
+
+  embedding_specialists:
+    - "openai"
+    - "cohere"
+    - "huggingface"
+    - "azure"
+    - "aws"
+    - "deepseek"
+
+  vision_capable:
+    - "openai"
+    - "anthropic"
+    - "google"
+    - "openrouter"
+    - "huggingface"
+    - "azure"
+    - "aws"
+    - "deepseek"
+
+  function_calling:
+    - "openai"
+    - "anthropic"
+    - "google"
+    - "mistral"
+    - "openrouter"
+    - "huggingface"
+    - "azure"
+    - "aws"
+    - "deepseek"

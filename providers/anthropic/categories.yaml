@@ -1,0 +1,39 @@
+# Model categories for Anthropic
+# Groups models by their primary capabilities
+
+chat:
+  - claude-opus-4-1-20250805
+  - claude-3-opus-20240229
+  - claude-sonnet-4-20250514
+  - claude-3-5-sonnet-20241022
+  - claude-3-5-haiku-20241022
+  - claude-3-sonnet-20240229
+  - claude-3-haiku-20240307
+
+vision:
+  - claude-opus-4-1-20250805
+  - claude-3-opus-20240229
+  - claude-sonnet-4-20250514
+  - claude-3-5-sonnet-20241022
+  - claude-3-5-haiku-20241022
+  - claude-3-sonnet-20240229
+  - claude-3-haiku-20240307
+
+function_calling:
+  - claude-opus-4-1-20250805
+  - claude-3-opus-20240229
+  - claude-sonnet-4-20250514
+  - claude-3-5-sonnet-20241022
+  - claude-3-5-haiku-20241022
+  - claude-3-sonnet-20240229
+  - claude-3-haiku-20240307
+
+reasoning:
+  - claude-opus-4-1-20250805
+  - claude-sonnet-4-20250514
+  - claude-3-5-sonnet-20241022
+
+coding:
+  - claude-3-5-sonnet-20241022
+  - claude-sonnet-4-20250514
+

@@ -1,0 +1,73 @@
+versions:
+  - version: "2.0.0"
+    date: "2025-12-26"
+    description: "Major restructure: hierarchical directory structure with individual model files"
+    changes:
+      breaking:
+        - Migrated from flat files (models.yaml, providers.yaml) to hierarchical structure
+        - Each provider now has its own directory under providers/
+        - Each model has its own YAML file under providers/{name}/models/
+        - Added manifest.yaml for remote sync
+        - Added per-provider categories.yaml and templates.yaml
+      new_features:
+        - Atomic model updates (one file per model)
+        - Better git history isolation
+        - Easier community contributions
+        - Manifest-based remote sync for efficiency
+      backward_compatibility:
+        - Legacy flat files still supported as fallback
+        - Loader automatically detects and uses appropriate format
+
+  - version: "1.0.2"
+    date: "2024-01-15"
+    description: "Added mistral models"
+    changes:
+      new_models:
+        - provider: mistral
+          model: magistral-small-2509
+          display_name: "Magistral Small 1.2"
+        - provider: mistral
+          model: voxtral-small-2507
+          display_name: "Voxtral Small" # capabilities: ["chat", "function_calling", "vision"]
+        - provider: cohere
+          model: command-a-reasoning-08-2025
+          display_name: "command-a-reasoning-08-2025"
+        - provider: cohere
+          model: command-a-03-2025
+          display_name: "command-a-03-2025"
+        - provider: anthropic
+          model: claude-sonnet-4-20250514
+          display_name: "Claude Sonnet 4"
+      new_providers:
+        - name: mistral
+          base_url: https://api.mistral.ai/v1
+          models:
+            - name: magistral-small-2509
+              display_name: "Magistral Small 1.2"
+            - name: voxtral-small-2507
+              display_name: "Voxtral Small"
+            - name: command-a-reasoning-08-2025
+              display_name: "command-a-reasoning-08-2025"
+            - name: claude-sonnet-4-20250514
+              display_name: "Claude Sonnet 4"
+      updated_models: []
+      deprecated_models: []
+      pricing_changes: []
+  - version: "1.0.1"
+    date: "2024-01-15"
+    description: "Removed mistral models"
+    changes:
+      new_models: []
+      new_providers: []
+      updated_models: []
+      deprecated_models: []
+      pricing_changes: []
+  - version: "1.0.0"
+    date: "2024-01-15"
+    description: "Initial catalog release"
+    changes:
+      new_models: []
+      new_providers: []
+      updated_models: []
+      deprecated_models: []
+      pricing_changes: []

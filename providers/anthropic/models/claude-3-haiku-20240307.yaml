@@ -1,0 +1,22 @@
+name: "claude-3-haiku-20240307"
+display_name: "Claude 3 Haiku"
+family: "claude-3"
+status: "stable"
+
+cost:
+  input_per_1k: 0.00025
+  output_per_1k: 0.00125
+
+limits:
+  max_tokens: 200000
+  max_completion_tokens: 4096
+
+capabilities:
+  - chat
+  - function_calling
+  - vision
+
+modalities:
+  input: ["text", "image"]
+  output: ["text"]
+
