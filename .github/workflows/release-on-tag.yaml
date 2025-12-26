@@ -1,0 +1,43 @@
+name: Create Release on Tag
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get version from tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: ${{ steps.version.outputs.version }}
+          body: |
+            ## Model Catalog ${{ steps.version.outputs.version }}
+
+            Auto-synced from the main repository.
+
+            ### Usage
+
+            **Pin to this version:**
+            ```
+            https://raw.githubusercontent.com/midfusionlabs/model-catalog/${{ steps.version.outputs.version }}/manifest.yaml
+            ```
+
+            **Use latest:**
+            ```
+            https://raw.githubusercontent.com/midfusionlabs/model-catalog/main/manifest.yaml
+            ```
+          generate_release_notes: false
+
